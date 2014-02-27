@@ -29,6 +29,10 @@ function jarvis_jump() {
   done < $JARVIS_HOME"/.jarvis"
 }
 
+function jarvis_all() {
+  cat ~/.jarvis
+}
+
 function jarvis_add() {
   touch $JARVIS_HOME"/.jarvis"
   cur_wd=$(pwd)
@@ -41,6 +45,7 @@ function jarvis_main() {
   case $1 in
 
   "add") jarvis_add;;
+  "all") jarvis_all;;
   *) jarvis_jump $@;;
 
   esac
