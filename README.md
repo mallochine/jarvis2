@@ -24,9 +24,13 @@ An example of how this would look is ". ~/.jrc".
 Commands:
 ----------
 "j add" will ask for what alias you want to name the current directory.
+
 Example (bash output):
+
 aguo@unix1:~/Documents/10605$ j add
+
 Type an alias for the current working directory, or ^C to quit:
+
 ml
 
 And now, ml is aliased with ~/Documents/10605. Lastly, "j ml" will take
