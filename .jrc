@@ -1,0 +1,53 @@
+# Author: Alex Guo
+# Contact: chessnut@outlook.com
+# Program: JARVIS.
+# Purpose: Significantly speed up navigation of the filesystem through bookmarks.
+
+JARVIS_HOME=$(pwd)
+
+function jarvis_cd() {
+  cd $1;
+  if [[ -n "$2" ]]
+  then
+    cd $2
+  fi
+}
+
+function jarvis_jump() {
+  touch $JARVIS_HOME"/.jarvis"
+
+  while read line
+  do
+      parsed=(`echo $line | tr '=' ' '`)
+      name=${parsed[0]}
+      to=${parsed[1]}
+
+      if [ "$name" == "$1" ];
+      then
+        cd $to
+        if [[ -n "$2" ]]
+        then
+          cd $2
+        fi
+      fi
+  done < $JARVIS_HOME"/.jarvis"
+}
+
+function jarvis_add() {
+  touch $JARVIS_HOME"/.jarvis"
+  cur_wd=$(pwd)
+  echo "Type an alias for the current working directory, or ^C to quit:"
+  read cur_alias
+  echo $cur_alias"="$cur_wd >> $JARVIS_HOME"/.jarvis"
+}
+
+function jarvis_main() {
+  case $1 in
+
+  "add") jarvis_add;;
+  *) jarvis_jump $@;;
+
+  esac
+}
+
+alias j=jarvis_main
