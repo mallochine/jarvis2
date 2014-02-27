@@ -23,7 +23,7 @@ Installation
 Save .jrc as ~/.jrc. Then stick a line in your .bashrc or .bash_aliases to run .jrc.
 An example of how this would look is ". ~/.jrc".
 
-Commands:
+Commands
 ----------
 "j add" will ask for what alias you want to name the current directory.
 
