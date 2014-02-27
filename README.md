@@ -36,5 +36,4 @@ Type an alias for the current working directory, or ^C to quit:
 ml
 
 
-And now, ml is aliased with ~/Documents/10605. Lastly, "j ml" will take
-me to ~/Documents/10605.
+Lastly, "j ml" will take me to ~/Documents/10605.
