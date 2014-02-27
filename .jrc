@@ -24,11 +24,7 @@ function jarvis_jump() {
 
       if [ "$name" == "$1" ];
       then
-        cd $to
-        if [[ -n "$2" ]]
-        then
-          cd $2
-        fi
+        jarvis_cd $to $2
       fi
   done < $JARVIS_HOME"/.jarvis"
 }
