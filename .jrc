@@ -56,7 +56,7 @@ function jarvis_add() {
 
 function jarvis_update() {
   SRC_URL='https://github.com/mallochine/jarvis2/raw/master'
-  wget -r -q $SRC_URL"/.jrc" -O .jrc
+  wget -r -q $SRC_URL"/.jrc" -O $JARVIS_HOME"/.jrc"
 }
 
 function jarvis_main() {
