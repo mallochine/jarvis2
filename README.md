@@ -22,8 +22,10 @@ Installation
 -------------
 Download the whole git repo. Run the command that corresponds to your shell:
 
-make bash
-make zsh
+make bash 
+
+make zsh 
+
 make csh
 
 Commands
