@@ -54,11 +54,17 @@ function jarvis_add() {
   echo $cur_alias"="$cur_wd >> $JARVIS_HOME"/.jarvis"
 }
 
+function jarvis_update() {
+  SRC_URL='https://github.com/mallochine/jarvis2/raw/master'
+  wget -r -q $SRC_URL"/.jrc" -O .jrc
+}
+
 function jarvis_main() {
   case $1 in
 
   "add") jarvis_add;;
   "all") jarvis_all;;
+  "update") jarvis_update;;
   *) jarvis_jump $@;;
 
   esac
