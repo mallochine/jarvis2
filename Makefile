@@ -11,7 +11,7 @@ csh:
 	echo . .jrc >> ~/.cshrc;
 
 update:
-	wget -r https://github.com/mallochine/jarvis2/raw/master/Makefile
-	wget -r https://github.com/mallochine/jarvis2/raw/master/.jrc
-	wget -r https://github.com/mallochine/jarvis2/raw/master/README.md
+	wget -r -q https://github.com/mallochine/jarvis2/raw/master/Makefile -O /dev/null
+	wget -r -q https://github.com/mallochine/jarvis2/raw/master/.jrc -O /dev/null
+	wget -r -q https://github.com/mallochine/jarvis2/raw/master/README.md -O /dev/null
 	cp .jrc ~/.jrc
