@@ -20,8 +20,11 @@ thesis.
 
 Installation
 -------------
-Save .jrc as ~/.jrc. Then stick a line in your .bashrc or .bash_aliases to run .jrc.
-An example of how this would look is ". ~/.jrc".
+Download the whole git repo. Run the command that corresponds to your shell:
+
+make bash
+make zsh
+make csh
 
 Commands
 ----------
