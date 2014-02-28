@@ -4,7 +4,6 @@ bash:
 
 zsh:
 	cp .jrc ~/.jrc;
-	echo "Hello World";
 	echo . .jrc >> ~/.zshrc;
 
 csh:
