@@ -27,6 +27,8 @@ function jarvis_cd() {
 }
 
 function jarvis_jump() {
+    echo "hello";
+    echo $1;
   touch $JARVIS_HOME"/.jarvis"
 
   while read line
@@ -68,19 +70,18 @@ function jarvis_upload() {
   fi
   file=$1
   curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
-  echo $file has been uploaded.
+  echo \"$file\" has been uploaded.
 }
 
 function jarvis_main() {
   cmd=$1
-  shift
 
   case $cmd in
 
   "add") jarvis_add;;
   "all") jarvis_all;;
   "update") jarvis_update;;
-  "up"|"upload") jarvis_upload $@;;
+  "up"|"upload") shift; jarvis_upload $@;;
   *) jarvis_jump $@;;
 
   esac
