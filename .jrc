@@ -27,8 +27,6 @@ function jarvis_cd() {
 }
 
 function jarvis_jump() {
-    echo "hello";
-    echo $1;
   touch $JARVIS_HOME"/.jarvis"
 
   while read line
