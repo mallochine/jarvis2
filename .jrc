@@ -14,7 +14,7 @@
 # Author: Alex Guo
 # Contact: chessnut@outlook.com
 # Program: JARVIS.
-# Purpose: Significantly speed up navigation of the filesystem through bookmarks.
+# Purpose: Significantly speed up CLI.
 
 JARVIS_HOME=$(pwd)
 
@@ -60,12 +60,27 @@ function jarvis_update() {
   echo "Updated."
 }
 
+function jarvis_upload() {
+  if [ $# -eq 0 ]
+  then
+    echo "Usage: j up <filename>"
+    return
+  fi
+  file=$1
+  curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
+  echo $file has been uploaded.
+}
+
 function jarvis_main() {
-  case $1 in
+  cmd=$1
+  shift
+
+  case $cmd in
 
   "add") jarvis_add;;
   "all") jarvis_all;;
   "update") jarvis_update;;
+  "up"|"upload") jarvis_upload $@;;
   *) jarvis_jump $@;;
 
   esac
