@@ -17,6 +17,8 @@
 # Purpose: Significantly speed up CLI.
 
 JARVIS_HOME=$(pwd)
+JARVIS_SVR="http://alexbug.com/"
+JARVIS_DIR="http://alexbug.com/up/"
 
 function jarvis_cd() {
   cd $1;
@@ -68,8 +70,8 @@ function jarvis_upload() {
   fi
   file=$1
   echo "Uploading..."
-  curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
-  echo \"$file\" has been uploaded to http://alexbug.com/up/$file
+  curl --form "file=@$file" $JARVIS_SVR"jarvis_upload.php"
+  echo \"$file\" has been uploaded to $JARVIS_DIR$file
   echo "You can use \"j get "$file"\" to download the file."
 }
 
@@ -81,7 +83,7 @@ function jarvis_download() {
     fi
     file=$1
     echo "Downloading..."
-    wget http://alexbug.com/up/$file
+    wget $JARVIS_DIR$file
 }
 
 function jarvis_main() {
