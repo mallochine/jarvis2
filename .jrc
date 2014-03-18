@@ -71,7 +71,7 @@ function jarvis_upload() {
   file=$1
   echo "Uploading..."
   curl --form "file=@$file" $JARVIS_SVR"jarvis_upload.php"
-  echo \"$file\" has been uploaded to $JARVIS_DIR$file
+  echo "\"$file\"" has been uploaded to $JARVIS_DIR$file".txt"
   echo "You can use \"j get "$file"\" to download the file."
 }
 
@@ -83,7 +83,7 @@ function jarvis_download() {
     fi
     file=$1
     echo "Downloading..."
-    wget $JARVIS_DIR$file
+    wget $JARVIS_DIR$file".txt" -O $file
 }
 
 function jarvis_main() {
