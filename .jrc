@@ -69,7 +69,18 @@ function jarvis_upload() {
   file=$1
   echo "Uploading..."
   curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
-  echo \"$file\" has been uploaded.
+  echo \"$file\" has been uploaded to http://alexbug.com/up/$file
+}
+
+function jarvis_download() {
+    if [ $# -eq 0 ]
+    then
+      echo "Usage: j wget <filename>"
+      return
+    fi
+    file=$1
+    echo "Downloading..."
+    wget http://alexbug.com/up/$file
 }
 
 function jarvis_main() {
@@ -79,6 +90,7 @@ function jarvis_main() {
 
   "add") jarvis_add;;
   "all") jarvis_all;;
+  "get"|"down"|"download") shift; jarvis_download $@;;
   "update") jarvis_update;;
   "up"|"upload") shift; jarvis_upload $@;;
   *) jarvis_jump $@;;
