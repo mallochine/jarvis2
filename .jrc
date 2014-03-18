@@ -70,12 +70,13 @@ function jarvis_upload() {
   echo "Uploading..."
   curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
   echo \"$file\" has been uploaded to http://alexbug.com/up/$file
+  echo "You can use \"j get "$file"\" to download the file."
 }
 
 function jarvis_download() {
     if [ $# -eq 0 ]
     then
-      echo "Usage: j wget <filename>"
+      echo "Usage: j get <filename>"
       return
     fi
     file=$1
