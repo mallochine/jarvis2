@@ -69,7 +69,7 @@ function jarvis_upload() {
   file=$1
   echo "Uploading..."
   curl --form "file=@$file" http://alexbug.com/jarvis_upload.php
-  echo \"$file\" has been uploaded.
+  echo \"$file\" has been uploaded to http://alexbug.com/up/$file
 }
 
 function jarvis_main() {
