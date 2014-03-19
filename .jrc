@@ -88,7 +88,7 @@ function jarvis_download() {
 }
 
 function jarvis_ls() {
-  return
+  jarvis_cat "../log/ls"
 }
 
 function jarvis_cat() {
@@ -114,6 +114,7 @@ function jarvis_main() {
   "update") jarvis_update;;
   "up"|"upload") shift; jarvis_upload $@;;
   "cat") shift; jarvis_cat $@;;
+  "ls") jarvis_ls;;
   *) jarvis_jump $@;;
 
   esac
