@@ -77,14 +77,30 @@ function jarvis_upload() {
 }
 
 function jarvis_download() {
-    if [ $# -eq 0 ]
-    then
-      echo "Usage: j get <filename>"
-      return
-    fi
-    file=$1
-    echo "Downloading..."
-    wget $JARVIS_DIR$file".txt" -O $file
+  if [ $# -eq 0 ]
+  then
+    echo "Usage: j get <filename>"
+    return
+  fi
+  file=$1
+  echo "Downloading..."
+  wget $JARVIS_DIR$file".txt" -O $file
+}
+
+function jarvis_ls() {
+  return
+}
+
+function jarvis_cat() {
+  if [ $# -eq 0 ]
+  then
+    echo "Usage: j cat <filename>"
+    return
+  fi
+  file=$1
+  #echo $file
+  #echo $JARVIS_DIR$file
+  wget -O- -q $JARVIS_DIR$file".txt"
 }
 
 function jarvis_main() {
@@ -97,6 +113,7 @@ function jarvis_main() {
   "get"|"down"|"download") shift; jarvis_download $@;;
   "update") jarvis_update;;
   "up"|"upload") shift; jarvis_upload $@;;
+  "cat") shift; jarvis_cat $@;;
   *) jarvis_jump $@;;
 
   esac
