@@ -37,42 +37,44 @@ Commands
 ----------
 ### j add
 
+```bash
 aguo@unix1:~/Documents/10605$ j add
-
 Type an alias for the current working directory, or ^C to quit:
-
 ml
+```
 
 ### j \<bookmark\>
 
+```bash
 aguo@unix1:~$ j ml
-
 aguo@unix1:~/Documents/10605$
+```
 
 ### j up \<filename\>
 
+```bash
 [ec2-user@ip-10-252-62-49 jarvis2]$ j up README.md
-
 Uploading...
-
 "README.md" has been uploaded to http://alexbug.com/up/README.md.txt
-
 You can use "j get README.md" to download the file.
+```
 
 ### j ls
 
+```bash
 aguo@unix1:~/Documents/10605$ j ls
-
 README.md.txt
+```
 
 ### j update
 
 Updates your JARVIS to the current source code. Does not yet check on its own for whether
 there are any updates.
 
+```bash
 aguo@unix1:~$ j update
-
 Updated.
+```
 
 ### j get
 
@@ -90,25 +92,3 @@ Saving to: `README.md'
 
 2014-03-20 21:50:06 (145 MB/s) - `README.md' saved [929/929]
 ```
-
-aguo@unix1:~/space$ j get README.md
-
-Downloading...
-
---2014-03-20 21:50:06--  http://alexbug.com/up/README.md.txt
-
-Resolving alexbug.com... 54.214.45.118
-
-Connecting to alexbug.com|54.214.45.118|:80... connected.
-
-HTTP request sent, awaiting response... 200 OK
-
-Length: 929 [text/plain]
-
-Saving to: `README.md'
-
-
-100%[======================================================================================================================================================>] 929         --.-K/s   in 0s
-
-
-2014-03-20 21:50:06 (145 MB/s) - `README.md' saved [929/929]
