@@ -91,6 +91,10 @@ function jarvis_ls() {
   jarvis_cat "../log/ls"
 }
 
+function jarvis_printError() {
+  jarvis_cat "../log/jarvis_upload"
+}
+
 function jarvis_cat() {
   if [ $# -eq 0 ]
   then
@@ -98,12 +102,23 @@ function jarvis_cat() {
     return
   fi
   file=$1
-  #echo $file
-  #echo $JARVIS_DIR$file
   wget -O- -q $JARVIS_DIR$file".txt"
 }
 
+function jarvis_remove() {
+  if [ $# -eq 0 ]
+  then
+    echo "Usage: j rm <filename>"
+    return
+  fi
+  echo $#
+  echo "$1"
+  file=$1
+  curl --form "file=$file" --form "cmd=rm" $JARVIS_SVR"jarvis.php"
+}
+
 function jarvis_main() {
+  #set -f
   cmd=$1
 
   case $cmd in
@@ -114,10 +129,16 @@ function jarvis_main() {
   "update") jarvis_update;;
   "up"|"upload") shift; jarvis_upload $@;;
   "cat") shift; jarvis_cat $@;;
-  "ls") jarvis_ls;;
+  "ls") shift; jarvis_ls $@;;
+  "rm") shift; jarvis_remove $@;;
   *) jarvis_jump $@;;
 
   esac
+
+  # set -f and set +f are needed so that we can actually listen
+  # to what the user is trying to say, such as j rm *, instead
+  # of having bash automatically expand that for us.
+  set +f
 }
 
-alias j=jarvis_main
+alias j="set -f; jarvis_main"
