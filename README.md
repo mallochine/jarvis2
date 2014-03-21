@@ -43,7 +43,6 @@ Type an alias for the current working directory, or ^C to quit:
 
 ml
 
-
 ### j \<bookmark\>
 
 aguo@unix1:~$ j ml
@@ -60,9 +59,17 @@ Uploading...
 
 You can use "j get README.md" to download the file.
 
-
 ### j ls
 
 aguo@unix1:~/Documents/10605$ j ls
 
 README.md.txt
+
+### j update
+
+Updates your JARVIS to the current source code. Does not yet check on its own for whether
+there are any updates.
+
+aguo@unix1:~$ j update
+
+Updated.
