@@ -6,21 +6,26 @@ Contact: chessnut@outlook.com.
 
 Program: JARVIS.
 
-JARVIS 2.0
--------------
+JARVIS 2.0 Change Log
+---------------------
 
-What's new in JARVIS 2.0 is filesystem navigation through _user-input_, instead of
-a machine trying to learn how the user behaves. As for JARVIS 1.0, it works,
-but not well enough.
+3/20/2014: What's new 
 
-As it turns out, it's a very natural habit for users to create
-bookmarks, while it is very _unnatural_ to wait for a machine
-to catch up to you. JARVIS 2.0 is a prototype for this "naturalness"
+: What's new in JARVIS 2.0 is filesystem navigation through _user-input_,
+instead of a machine trying to learn how the user behaves. As it turns out, it's a
+very natural habit for users to create bookmarks, while it is very _unnatural_ to wait
+for a machine to catch up to you. JARVIS 2.0 is a prototype for this "naturalness"
 thesis.
+
+What's new in recent updates to JARVIS 2.0 is that you can now easily integrate your
+CLI environment into a remote server.
+
+
 
 Installation
 -------------
-Download the whole git repo. Run the command that corresponds to your shell:
+Download the whole git repo (you can try "git clone http://github.com/mallochine/jarvis2.git").
+Run the command that corresponds to your shell:
 
 make bash 
 
