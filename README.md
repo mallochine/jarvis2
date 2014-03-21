@@ -9,7 +9,13 @@ Program: JARVIS.
 JARVIS 2.0 Change Log
 ---------------------
 
-3/20/2014: What's new 
+3/20/2014: What's new is the remote filesystem. Anybody who's SSH'd somewhere knows
+how much of a pain in the ass it is to transfer files between the server and
+other computers (servers or clients). With "j up", you can upload files
+to a easy-to-type URL, and then download with "j get".
+
+On top of all that, you can treat the remote filesystem as a Unix filesystem with
+commands like "j rm", "j ls", and "j cat".
 
 2/28/2014: What's new in JARVIS 2.0 is filesystem navigation through _user-input_,
 instead of a machine trying to learn how the user behaves. As it turns out, it's a
