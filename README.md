@@ -8,8 +8,8 @@ Program: JARVIS.
 
 Backend code: https://github.com/mallochine/jarvis2-svr
 
-JARVIS 2.0 Change Log
----------------------
+JARVIS 2.0
+----------
 
 What's new in JARVIS 2.0 is filesystem navigation through _user-input_,
 instead of a machine trying to learn how the user behaves. As it turns out, it's a
