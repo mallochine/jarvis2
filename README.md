@@ -26,7 +26,7 @@ thesis.
 
 Installation
 -------------
-Download the whole git repo (git clone http://github.com/mallochine/jarvis2.git).
+Download the whole git repo (git clone https://github.com/mallochine/jarvis2.git).
 Run the command that corresponds to your shell:
 
 make bash 
