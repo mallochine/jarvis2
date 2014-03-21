@@ -73,3 +73,27 @@ there are any updates.
 aguo@unix1:~$ j update
 
 Updated.
+
+### j get
+
+aguo@unix1:~/space$ j get README.md
+
+Downloading...
+
+--2014-03-20 21:50:06--  http://alexbug.com/up/README.md.txt
+
+Resolving alexbug.com... 54.214.45.118
+
+Connecting to alexbug.com|54.214.45.118|:80... connected.
+
+HTTP request sent, awaiting response... 200 OK
+
+Length: 929 [text/plain]
+
+Saving to: `README.md'
+
+
+100%[======================================================================================================================================================>] 929         --.-K/s   in 0s
+
+
+2014-03-20 21:50:06 (145 MB/s) - `README.md' saved [929/929]
