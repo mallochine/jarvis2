@@ -71,7 +71,7 @@ function jarvis_upload() {
   fi
   file=$1
   echo "Uploading..."
-  curl --form "file=@$file" $JARVIS_SVR"jarvis_upload.php"
+  curl --form "file=@$file" --form "cmd=up" $JARVIS_SVR"jarvis.php"
   echo "\"$file\"" has been uploaded to $JARVIS_DIR$file".txt"
   echo "You can use \"j get "$file"\" to download the file."
 }
@@ -111,18 +111,14 @@ function jarvis_remove() {
     echo "Usage: j rm <filename>"
     return
   fi
-  echo $#
-  echo "$1"
   file=$1
   curl --form "file=$file" --form "cmd=rm" $JARVIS_SVR"jarvis.php"
 }
 
 function jarvis_main() {
-  #set -f
   cmd=$1
 
   case $cmd in
-
   "add") jarvis_add;;
   "all") jarvis_all;;
   "get"|"down"|"download") shift; jarvis_download $@;;
@@ -132,7 +128,6 @@ function jarvis_main() {
   "ls") shift; jarvis_ls $@;;
   "rm") shift; jarvis_remove $@;;
   *) jarvis_jump $@;;
-
   esac
 
   # set -f and set +f are needed so that we can actually listen
