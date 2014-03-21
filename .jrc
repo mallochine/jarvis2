@@ -63,70 +63,13 @@ function jarvis_update() {
   echo "Updated."
 }
 
-function jarvis_upload() {
-  if [ $# -eq 0 ]
-  then
-    echo "Usage: j up <filename>"
-    return
-  fi
-  file=$1
-  echo "Uploading..."
-  curl --form "file=@$file" --form "cmd=up" $JARVIS_SVR"jarvis.php"
-  echo "\"$file\"" has been uploaded to $JARVIS_DIR$file".txt"
-  echo "You can use \"j get "$file"\" to download the file."
-}
-
-function jarvis_download() {
-  if [ $# -eq 0 ]
-  then
-    echo "Usage: j get <filename>"
-    return
-  fi
-  file=$1
-  echo "Downloading..."
-  wget $JARVIS_DIR$file".txt" -O $file
-}
-
-function jarvis_ls() {
-  jarvis_cat "../log/ls"
-}
-
-function jarvis_printError() {
-  jarvis_cat "../log/jarvis_upload"
-}
-
-function jarvis_cat() {
-  if [ $# -eq 0 ]
-  then
-    echo "Usage: j cat <filename>"
-    return
-  fi
-  file=$1
-  wget -O- -q $JARVIS_DIR$file".txt"
-}
-
-function jarvis_remove() {
-  if [ $# -eq 0 ]
-  then
-    echo "Usage: j rm <filename>"
-    return
-  fi
-  file=$1
-  curl --form "file=$file" --form "cmd=rm" $JARVIS_SVR"jarvis.php"
-}
-
 function jarvis_main() {
   cmd=$1
 
   case $cmd in
   "add") jarvis_add;;
   "all") jarvis_all;;
-  "get"|"down"|"download") shift; jarvis_download $@;;
   "update") jarvis_update;;
-  "up"|"upload") shift; jarvis_upload $@;;
-  "cat") shift; jarvis_cat $@;;
-  "ls") shift; jarvis_ls $@;;
-  "rm") shift; jarvis_remove $@;;
   *) jarvis_jump $@;;
   esac
 
