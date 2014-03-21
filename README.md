@@ -115,3 +115,20 @@ aguo@unix1:~/space$ j rm *
 aguo@unix1:~/space$ j ls
 aguo@unix1:~/space$ # Nothing in uploaded!
 ```
+
+### j all
+
+Lists all the bookmarks you have.
+
+```bash
+[ec2-user@ip-10-252-62-49 ~]$ j all
+bics=/var/bics
+newpl=/var/bics/newplayers
+src=/home/ec2-user/space/bics-current/src
+stats=/var/bics/data/stats
+players=/var/bics/players
+jarvis2=/home/ec2-user/space/jarvis2
+html=/var/www/html
+debug=/var/bics-debug
+proxies=/home/ec2-user/space/fics-proxy
+```
