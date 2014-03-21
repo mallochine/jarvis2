@@ -105,3 +105,13 @@ Contact: chessnut@outlook.com.
 
 Program: JARVIS.
 ```
+
+### j rm \<filename\>
+
+```bash
+aguo@unix1:~/space$ j ls
+README.md.txt
+aguo@unix1:~/space$ j rm *
+aguo@unix1:~/space$ j ls
+aguo@unix1:~/space$ # Nothing in uploaded!
+```
