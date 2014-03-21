@@ -11,7 +11,7 @@ JARVIS 2.0 Change Log
 
 3/20/2014: What's new 
 
-: What's new in JARVIS 2.0 is filesystem navigation through _user-input_,
+2/28/2014: What's new in JARVIS 2.0 is filesystem navigation through _user-input_,
 instead of a machine trying to learn how the user behaves. As it turns out, it's a
 very natural habit for users to create bookmarks, while it is very _unnatural_ to wait
 for a machine to catch up to you. JARVIS 2.0 is a prototype for this "naturalness"
