@@ -24,7 +24,7 @@ CLI environment into a remote server.
 
 Installation
 -------------
-Download the whole git repo (you can try git clone http://github.com/mallochine/jarvis2.git).
+Download the whole git repo (git clone http://github.com/mallochine/jarvis2.git).
 Run the command that corresponds to your shell:
 
 make bash 
@@ -35,9 +35,7 @@ make csh
 
 Commands
 ----------
-"j add" will ask for what alias you want to name the current directory.
-
-Example (bash output):
+"j add" will 
 
 aguo@unix1:~/Documents/10605$ j add
 
@@ -46,4 +44,18 @@ Type an alias for the current working directory, or ^C to quit:
 ml
 
 
-Lastly, "j ml" will take me to ~/Documents/10605.
+"j ml" will take me to ~/Documents/10605.
+
+
+"j up <filename>" will upload a file.
+
+[ec2-user@ip-10-252-62-49 ~]$ j up
+Usage: j up <filename>
+
+[ec2-user@ip-10-252-62-49 jarvis2]$ j up README.md
+Uploading...
+"README.md" has been uploaded to http://alexbug.com/up/README.md.txt
+You can use "j get README.md" to download the file.
+
+
+"j ls" will list all the files that you have uploaded.
