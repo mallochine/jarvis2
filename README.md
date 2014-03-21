@@ -50,8 +50,7 @@ aguo@unix1:~$ j ml
 
 aguo@unix1:~/Documents/10605$
 
-
-#### j up \<filename\>
+### j up \<filename\>
 
 [ec2-user@ip-10-252-62-49 jarvis2]$ j up README.md
 
@@ -62,4 +61,8 @@ Uploading...
 You can use "j get README.md" to download the file.
 
 
-"j ls" will list all the files that you have uploaded.
+### j ls
+
+aguo@unix1:~/Documents/10605$ j ls
+
+README.md.txt
