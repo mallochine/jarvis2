@@ -50,11 +50,16 @@ ml
 "j up <filename>" will upload a file.
 
 [ec2-user@ip-10-252-62-49 ~]$ j up
+
 Usage: j up <filename>
 
+
 [ec2-user@ip-10-252-62-49 jarvis2]$ j up README.md
+
 Uploading...
+
 "README.md" has been uploaded to http://alexbug.com/up/README.md.txt
+
 You can use "j get README.md" to download the file.
 
 
