@@ -6,6 +6,8 @@ Contact: chessnut@outlook.com.
 
 Program: JARVIS.
 
+Backend code: https://github.com/mallochine/jarvis2-svr
+
 JARVIS 2.0 Change Log
 ---------------------
 
