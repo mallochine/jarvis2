@@ -152,3 +152,8 @@ html=/var/www/html
 debug=/var/bics-debug
 proxies=/home/ec2-user/space/fics-proxy
 ```
+
+See Also
+----------
+
+- the backend code that runs JARVIS 2! https://github.com/mallochine/jarvis2-svr
