@@ -37,6 +37,8 @@ Commands
 ----------
 ### j add
 
+Add the current directory as a bookmark.
+
 ```bash
 aguo@unix1:~/Documents/10605$ j add
 Type an alias for the current working directory, or ^C to quit:
@@ -45,12 +47,16 @@ ml
 
 ### j \<bookmark\>
 
+Go to the directory corresponding to the bookmark.
+
 ```bash
 aguo@unix1:~$ j ml
 aguo@unix1:~/Documents/10605$
 ```
 
 ### j up \<filename\>
+
+Uploads the filename. Does not parse wildcards yet.
 
 ```bash
 [ec2-user@ip-10-252-62-49 jarvis2]$ j up README.md
@@ -60,6 +66,8 @@ You can use "j get README.md" to download the file.
 ```
 
 ### j ls
+
+Lists all the files in uploaded.
 
 ```bash
 aguo@unix1:~/Documents/10605$ j ls
@@ -78,6 +86,8 @@ Updated.
 
 ### j get \<filename\>
 
+Downloads the filename. Does not parse wildcards yet.
+
 ```bash
 aguo@unix1:~/space$ j get README.md
 Downloading...
@@ -95,6 +105,8 @@ Saving to: `README.md'
 
 ### j cat \<filename\>
 
+Print the contents of the filename. Does not parse wildcards.
+
 ```bash
 aguo@unix1:~$ j cat README.md
 Meta Information
@@ -107,6 +119,8 @@ Program: JARVIS.
 ```
 
 ### j rm \<filename\>
+
+Removes the filename. Parses wildcards.
 
 ```bash
 aguo@unix1:~/space$ j ls
