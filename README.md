@@ -35,7 +35,7 @@ make csh
 
 Commands
 ----------
-"j add" will 
+### j add
 
 aguo@unix1:~/Documents/10605$ j add
 
@@ -44,10 +44,13 @@ Type an alias for the current working directory, or ^C to quit:
 ml
 
 
-"j ml" will take me to ~/Documents/10605.
+### j \<bookmark\>
 
+aguo@unix1:~$ j ml
 
-"j up \<filename\>" will upload a file.
+aguo@unix1:~/Documents/10605$
+
+#### j up \<filename\>" will upload a file.
 
 [ec2-user@ip-10-252-62-49 ~]$ j up
 
