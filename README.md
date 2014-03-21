@@ -76,7 +76,7 @@ aguo@unix1:~$ j update
 Updated.
 ```
 
-### j get
+### j get \<filename\>
 
 ```bash
 aguo@unix1:~/space$ j get README.md
@@ -91,4 +91,17 @@ Saving to: `README.md'
 100%[======================================================================================================================================================>] 929         --.-K/s   in 0s
 
 2014-03-20 21:50:06 (145 MB/s) - `README.md' saved [929/929]
+```
+
+### j cat \<filename\>
+
+```bash
+aguo@unix1:~$ j cat README.md
+Meta Information
+-------------------
+Author: Alex Guo.
+
+Contact: chessnut@outlook.com.
+
+Program: JARVIS.
 ```
