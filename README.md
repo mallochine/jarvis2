@@ -24,7 +24,7 @@ CLI environment into a remote server.
 
 Installation
 -------------
-Download the whole git repo (you can try "git clone http://github.com/mallochine/jarvis2.git").
+Download the whole git repo (you can try git clone http://github.com/mallochine/jarvis2.git).
 Run the command that corresponds to your shell:
 
 make bash 
