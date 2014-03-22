@@ -74,6 +74,11 @@ debug=/var/bics-debug
 proxies=/home/ec2-user/space/fics-proxy
 ```
 
+We would like help with...
+---------------------------
+- Getting JARVIS2 into the packagement systems of various Linux distributions,
+such as apt-get (ubuntu), pacman (archlinux), and more!
+
 See Also
 ----------
 
