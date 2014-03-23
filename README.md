@@ -80,4 +80,5 @@ such as apt-get (ubuntu), pacman (archlinux), and more!
 See Also
 ----------
 
+- The server that helps run JARVIS 3: https://github.com/mallochine/jarvis2-svr
 - JARVIS 3, which enables you to interact with a remote filesystem. https://github.com/mallochine/jarvis3
