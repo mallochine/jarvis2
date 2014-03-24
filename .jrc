@@ -74,7 +74,7 @@ function jarvis_main {
   "add") jarvis_add;;
   "all") jarvis_all;;
   "update") jarvis_update;;
-  "edit") jarvis_edit;;
+  "edit"|"vim") jarvis_edit;;
   *) jarvis_jump $@;;
   esac
 

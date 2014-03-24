@@ -54,7 +54,7 @@ aguo@unix1:~$ j ml
 aguo@unix1:~/Documents/10605$
 ```
 
-### j edit
+### j edit, j vim
 
 Edits your bookmarks using the Vim editor.
 
