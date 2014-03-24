@@ -54,12 +54,21 @@ aguo@unix1:~$ j ml
 aguo@unix1:~/Documents/10605$
 ```
 
+### j edit
+
+Edits your bookmarks using the Vim editor.
+
+```bash
+[ec2-user@ip-10-252-62-49 ~]$ j edit
+[Loading vim...]
+```
 
 ### j all
 
 Lists all the bookmarks you have.
 
 ```bash
+
 [ec2-user@ip-10-252-62-49 ~]$ j all
 bics=/var/bics
 newpl=/var/bics/newplayers
