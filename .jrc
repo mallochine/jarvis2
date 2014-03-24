@@ -20,7 +20,7 @@ JARVIS_HOME=$(pwd)
 JARVIS_SVR="http://alexbug.com/"
 JARVIS_DIR="http://alexbug.com/up/"
 
-function jarvis_cd() {
+function jarvis_cd {
   cd $1;
   if [[ -n "$2" ]]
   then
@@ -28,7 +28,7 @@ function jarvis_cd() {
   fi
 }
 
-function jarvis_jump() {
+function jarvis_jump {
   touch $JARVIS_HOME"/.jarvis"
 
   while read line
@@ -44,11 +44,11 @@ function jarvis_jump() {
   done < $JARVIS_HOME"/.jarvis"
 }
 
-function jarvis_all() {
+function jarvis_all {
   cat ~/.jarvis
 }
 
-function jarvis_add() {
+function jarvis_add {
   touch $JARVIS_HOME"/.jarvis"
   cur_wd=$(pwd)
   echo "Type an alias for the current working directory, or ^C to quit:"
@@ -56,18 +56,18 @@ function jarvis_add() {
   echo $cur_alias"="$cur_wd >> $JARVIS_HOME"/.jarvis"
 }
 
-function jarvis_update() {
+function jarvis_update {
   SRC_URL='https://github.com/mallochine/jarvis2/raw/master'
   wget -r -q $SRC_URL"/.jrc" -O $JARVIS_HOME"/.jrc"
   . $JARVIS_HOME"/.jrc"
   echo "Updated."
 }
 
-function jarvis_edit() {
+function jarvis_edit {
   vim $JARVIS_HOME"/.jarvis"
 }
 
-function jarvis_main() {
+function jarvis_main {
   cmd=$1
 
   case $cmd in
