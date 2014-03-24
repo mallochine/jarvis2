@@ -63,6 +63,10 @@ function jarvis_update() {
   echo "Updated."
 }
 
+function jarvis_edit() {
+  vim $JARVIS_HOME"/.jrc"
+}
+
 function jarvis_main() {
   cmd=$1
 
@@ -70,6 +74,7 @@ function jarvis_main() {
   "add") jarvis_add;;
   "all") jarvis_all;;
   "update") jarvis_update;;
+  "edit") jarvis_edit;;
   *) jarvis_jump $@;;
   esac
 
