@@ -64,7 +64,7 @@ function jarvis_update() {
 }
 
 function jarvis_edit() {
-  vim $JARVIS_HOME"/.jrc"
+  vim $JARVIS_HOME"/.jarvis"
 }
 
 function jarvis_main() {
