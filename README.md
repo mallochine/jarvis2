@@ -29,11 +29,9 @@ Installation
 Download the whole git repo (git clone https://github.com/mallochine/jarvis2.git).
 Run the command that corresponds to your shell:
 
-make bash 
-
-make zsh 
-
-make csh
+- make bash 
+- make zsh 
+- make csh
 
 Commands
 ----------
@@ -74,7 +72,13 @@ debug=/var/bics-debug
 proxies=/home/ec2-user/space/fics-proxy
 ```
 
+We would like help with...
+---------------------------
+- Getting JARVIS2 into the packagement systems of various Linux distributions,
+such as apt-get (ubuntu), pacman (archlinux), and more!
+
 See Also
 ----------
 
+- The server that helps run JARVIS 3: https://github.com/mallochine/jarvis2-svr
 - JARVIS 3, which enables you to interact with a remote filesystem. https://github.com/mallochine/jarvis3
