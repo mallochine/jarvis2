@@ -60,7 +60,6 @@ Edits your bookmarks using the Vim editor.
 
 ```bash
 [ec2-user@ip-10-252-62-49 ~]$ j edit
-Loading vim...
 ```
 
 ```bash
