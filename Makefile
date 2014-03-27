@@ -1,17 +1,17 @@
 bash:
 	cp .jrc ~/.jrc;
-	. ~/.jrc
 	echo . .jrc >> ~/.bashrc;
+	echo "Restart your shell"
 
 zsh:
 	cp .jrc ~/.jrc;
-	. ~/.jrc
 	echo . .jrc >> ~/.zshrc;
+	echo "Restart your shell"
 
 csh:
 	cp .jrc ~/.jrc;
-	. ~/.jrc
 	echo . .jrc >> ~/.cshrc;
+	echo "Restart your shell"
 
 update:
 	wget -r -q https://github.com/mallochine/jarvis2/raw/master/Makefile -O Makefile
