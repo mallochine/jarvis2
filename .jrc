@@ -19,6 +19,7 @@
 JARVIS_HOME=$(pwd)
 JARVIS_SVR="http://alexbug.com/"
 JARVIS_DIR="http://alexbug.com/up/"
+JARVIS_SH=$(ps -p $$ | tail -1)
 
 function jarvis_cd {
   cd $1;
@@ -33,14 +34,26 @@ function jarvis_jump {
 
   while read line
   do
-      parsed=(`echo $line | tr '=' ' '`)
-      name=${parsed[0]}
-      to=${parsed[1]}
+    parsed=(`echo $line | tr '=' ' '`)
+    name=''
+    to=''
 
-      if [ "$name" == "$1" ];
-      then
-        jarvis_cd $to $2
-      fi
+    if [[ $JARVIS_SH == *bash* ]];
+    then
+      name=$(echo ${parsed[0]})
+      to=$(echo ${parsed[1]})
+    fi
+
+    if [[ $JARVIS_SH == *zsh* ]];
+    then
+      name=$(echo ${parsed[1]})
+      to=$(echo ${parsed[2]})
+    fi
+
+    if [[ "$name" == "$1" ]];
+    then
+      jarvis_cd $to $2
+    fi
   done < $JARVIS_HOME"/.jarvis"
 }
 
