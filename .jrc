@@ -63,7 +63,7 @@ function jarvis_all {
   while read line
   do
     echo ${line}
-  done < JARVIS_HOME"/.jarvis"
+  done < $JARVIS_HOME"/.jarvis"
 }
 
 function jarvis_add {
