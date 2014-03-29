@@ -58,7 +58,11 @@ function jarvis_jump {
 }
 
 function jarvis_all {
-  cat ~/.jarvis
+  #cat ~/.jarvis
+  while read line
+  do
+    echo ${line}
+  done < JARVIS_HOME"/.jarvis"
 }
 
 function jarvis_add {
@@ -81,7 +85,7 @@ function jarvis_edit {
 }
 
 function jarvis_main {
-  cmd=$1
+  cmd=${1}
 
   case $cmd in
   "add") jarvis_add;;
