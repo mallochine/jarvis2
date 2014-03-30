@@ -37,6 +37,22 @@ Run the command that corresponds to your shell:
 - make bash 
 - make zsh 
 - make csh
+- 
+```bash
+aguo@unix1:~/space$ git clone https://github.com/mallochine/jarvis2.git
+Initialized empty Git repository in /afs/andrew.cmu.edu/usr9/aguo/space/jarvis2/.git/
+remote: Counting objects: 252, done.
+remote: Compressing objects: 100% (136/136), done.
+remote: Total 252 (delta 117), reused 247 (delta 112)
+Receiving objects: 100% (252/252), 29.74 KiB, done.
+Resolving deltas: 100% (117/117), done.
+aguo@unix1:~/space$ cd jarvis2
+aguo@unix1:~/space/jarvis2$ make bash
+cp .jrc ~/.jrc;
+echo . .jrc >> ~/.bashrc;
+echo "Restart your shell"
+Restart your shell
+```
 
 Commands
 ----------
