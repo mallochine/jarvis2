@@ -96,6 +96,12 @@ Delete a bookmark.
 aguo@unix4:~$ j -
 Type an alias you wish to delete, or ^C to quit:
 hadoop
+"hadoop" deleted.
+```
+
+```bash
+aguo@unix2:~$ j - hadoop
+"hadoop" deleted.
 ```
 
 ### j edit, j vim
