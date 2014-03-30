@@ -30,6 +30,8 @@ function jarvis_cd {
 
 function jarvis_jump {
   touch $JARVIS_HOME"/.jarvis"
+  green='\e[0;32m'
+  endColor='\e[0m'
 
   while read line
   do
@@ -40,6 +42,8 @@ function jarvis_jump {
     if [[ "$name" == "$1" ]];
     then
       jarvis_cd $to $2
+      echo -e "${green}"$PWD"${endColor}"
+      return
     fi
   done < $JARVIS_HOME"/.jarvis"
 }
@@ -80,7 +84,7 @@ function jarvis_main {
   cmd=${1}
 
   case $cmd in
-  "add") jarvis_add;;
+  "add"|"+") jarvis_add;;
   "all") jarvis_all;;
   "update") jarvis_update;;
   "edit"|"vim") jarvis_edit;;
