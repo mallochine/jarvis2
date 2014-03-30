@@ -46,7 +46,7 @@ remote: Compressing objects: 100% (136/136), done.
 remote: Total 252 (delta 117), reused 247 (delta 112)
 Receiving objects: 100% (252/252), 29.74 KiB, done.
 Resolving deltas: 100% (117/117), done.
-
+aguo@unix1:~/space$
 aguo@unix1:~/space$ cd jarvis2
 aguo@unix1:~/space/jarvis2$ make bash
 cp .jrc ~/.jrc;
