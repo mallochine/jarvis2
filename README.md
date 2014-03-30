@@ -59,14 +59,20 @@ Restart your shell
 
 Commands
 ----------
-### j add, j +
+### j add, j +, j add \<bookmark\>, j + \<bookmark\>
 
 Add the current directory as a bookmark.
 
 ```bash
-aguo@unix1:~/Documents/10605$ j add
+aguo@unix4:~/Documents/10605$ j add
 Type an alias for the current working directory, or ^C to quit:
 ml
+"ml" added as a bookmark.
+```
+
+```bash
+[ec2-user@ip-10-252-62-49 bics]$ j + bics
+"bics" added as a bookmark.
 ```
 
 ### j \<bookmark\>
@@ -76,6 +82,7 @@ for significantly simplying the code here.).
 
 ```bash
 aguo@unix1:~$ j ml
+/afs/andrew.cmu.edu/usr9/aguo/Documents/10605
 aguo@unix1:~/Documents/10605$
 ```
 
