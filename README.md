@@ -37,7 +37,6 @@ Run the command that corresponds to your shell:
 
 - make bash 
 - make zsh 
-- make csh
 
 ```bash
 aguo@unix1:~/space$ git clone https://github.com/mallochine/jarvis2.git
