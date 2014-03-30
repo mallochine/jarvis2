@@ -96,10 +96,18 @@ function jarvis_edit {
 
 # Kudos to Mr Green from ArchLinux for supplying the following code.
 function jarvis_delete {
-  echo "Type an alias you wish to delete, or ^C to quit:"
-  read delete_alias
+  delete_alias=""
+  if [[ -n "$2" ]]
+  then
+    delete_alias=$2
+  else
+    echo "Type an alias you wish to delete, or ^C to quit:"
+    read delete_alias
+  fi
+
   # now find the alias you wish to delete
   sed -i "/^${delete_alias}=/d" $JARVIS_HOME"/.jarvis"
+  echo "\"${delete_alias}\" deleted."
 }
 
 function jarvis_main {
@@ -110,7 +118,7 @@ function jarvis_main {
   "all") jarvis_all;;
   "update") jarvis_update;;
   "edit"|"vim") jarvis_edit;;
-  "del"|"-") jarvis_delete;;
+  "del"|"-") jarvis_delete $@;;
   *) jarvis_jump $@;;
   esac
 
