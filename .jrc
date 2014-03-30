@@ -43,7 +43,7 @@ function jarvis_jump {
     if [[ "$name" == "$1" ]];
     then
       jarvis_cd $to $2
-      echo -e "${blue}"$PWD"${endColor}"
+      echo -e "${green}"$PWD"${endColor}"
       return
     fi
   done < $JARVIS_HOME"/.jarvis"
@@ -51,20 +51,33 @@ function jarvis_jump {
 
 
 function jarvis_all {
-  #cat ~/.jarvis
+  green='\e[0;32m'
+  endColor='\e[0m'
+
   # Credit to Mr Green from ArchLinux for suggesting the following code.
+  echo -e "${green}\c"
   while read line
   do
     echo ${line}
   done < $JARVIS_HOME"/.jarvis"
+  echo -e "${endColor}\c"
 }
 
 function jarvis_add {
   touch $JARVIS_HOME"/.jarvis"
   cur_wd=$PWD
-  echo "Type an alias for the current working directory, or ^C to quit:"
-  read cur_alias
+  cur_alias=""
+
+  if [[ -n "$2" ]]
+  then
+    cur_alias=$2
+  else
+    echo "Type an alias for the current working directory, or ^C to quit:"
+    read cur_alias
+  fi
+
   echo $cur_alias"="$cur_wd >> $JARVIS_HOME"/.jarvis"
+  echo "\""$cur_alias"\" added as a bookmark."
 }
 
 function jarvis_update {
@@ -93,7 +106,7 @@ function jarvis_main {
   cmd=${1}
 
   case $cmd in
-  "add"|"+") jarvis_add;;
+  "add"|"+") jarvis_add $@;;
   "all") jarvis_all;;
   "update") jarvis_update;;
   "edit"|"vim") jarvis_edit;;
