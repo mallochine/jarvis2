@@ -80,6 +80,14 @@ function jarvis_edit {
   ${ed} $JARVIS_HOME"/.jarvis"
 }
 
+# Kudos to Mr Green from ArchLinux for supplying the following code.
+function jarvis_delete {
+  echo "Type an alias you wish to delete, or ^C to quit:"
+  read delete_alias
+  # now find the alias you wish to delete
+  sed -i "/^${delete_alias}=/d" $JARVIS_HOME"/.jarvis"
+}
+
 function jarvis_main {
   cmd=${1}
 
@@ -88,6 +96,7 @@ function jarvis_main {
   "all") jarvis_all;;
   "update") jarvis_update;;
   "edit"|"vim") jarvis_edit;;
+  "del"|"-") jarvis_delete;;
   *) jarvis_jump $@;;
   esac
 
