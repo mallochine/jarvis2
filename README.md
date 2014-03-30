@@ -59,7 +59,7 @@ Restart your shell
 
 Commands
 ----------
-### j add
+### j add, j +
 
 Add the current directory as a bookmark.
 
@@ -77,6 +77,16 @@ for significantly simplying the code here.).
 ```bash
 aguo@unix1:~$ j ml
 aguo@unix1:~/Documents/10605$
+```
+
+### j del, j -
+
+Delete a bookmark.
+
+```bash
+aguo@unix4:~$ j -
+Type an alias you wish to delete, or ^C to quit:
+hadoop
 ```
 
 ### j edit, j vim
