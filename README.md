@@ -59,7 +59,7 @@ Restart your shell
 
 Commands
 ----------
-### j add, j +
+### j add, j +, \<bookmark\> optional.
 
 Add the current directory as a bookmark.
 
