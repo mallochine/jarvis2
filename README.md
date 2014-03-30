@@ -1,3 +1,8 @@
+Acknowledgements
+----------------
+- @jsks for removing all subshells and simplifying code.
+- Mr Green from ArchLinux for helping make the code more cross-shell.
+
 Meta Information
 -------------------
 Author: Alex Guo.
