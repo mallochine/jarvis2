@@ -1,7 +1,8 @@
 Acknowledgements
 ----------------
 - @jsks for removing all subshells and simplifying code.
-- Mr Green from ArchLinux for helping make the code more cross-shell.
+- Mr Green from ArchLinux for helping make the code more cross-shell and suggesting
+many new features such as j - and j +.
 
 Meta Information
 -------------------
