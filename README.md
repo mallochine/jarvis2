@@ -79,7 +79,9 @@ aguo@unix1:~$ j ml
 aguo@unix1:~/Documents/10605$
 ```
 
-### j del, j -
+### j del, j - 
+
+(Thanks to Mr Green for conceiving the idea and writing code for this!).
 
 Delete a bookmark.
 
