@@ -52,7 +52,8 @@ ml
 
 ### j \<bookmark\>
 
-Go to the directory corresponding to the bookmark.
+Go to the directory corresponding to the bookmark. (Credits to jsks
+for significantly simplying the code here.).
 
 ```bash
 aguo@unix1:~$ j ml
@@ -61,7 +62,8 @@ aguo@unix1:~/Documents/10605$
 
 ### j edit, j vim
 
-Edits your bookmarks using the Vim editor.
+Edits your bookmarks using your shell's default editor (kudos to Mr Green for
+writing this!).
 
 ```bash
 [ec2-user@ip-10-252-62-49 ~]$ j edit
