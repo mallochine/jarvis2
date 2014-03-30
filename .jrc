@@ -31,6 +31,7 @@ function jarvis_cd {
 function jarvis_jump {
   touch $JARVIS_HOME"/.jarvis"
   green='\e[0;32m'
+  blue='\e[1;34m'
   endColor='\e[0m'
 
   while read line
@@ -42,7 +43,7 @@ function jarvis_jump {
     if [[ "$name" == "$1" ]];
     then
       jarvis_cd $to $2
-      echo -e "${green}"$PWD"${endColor}"
+      echo -e "${blue}"$PWD"${endColor}"
       return
     fi
   done < $JARVIS_HOME"/.jarvis"
