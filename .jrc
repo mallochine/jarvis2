@@ -16,10 +16,9 @@
 # Program: JARVIS.
 # Purpose: Significantly speed up CLI.
 
-JARVIS_HOME=$(pwd)
+JARVIS_HOME=$PWD
 JARVIS_SVR="http://alexbug.com/"
 JARVIS_DIR="http://alexbug.com/up/"
-JARVIS_SH=$(ps -p $$ | tail -1)
 
 function jarvis_cd {
   cd $1;
@@ -34,21 +33,8 @@ function jarvis_jump {
 
   while read line
   do
-    parsed=(`echo $line | tr '=' ' '`)
-    name=''
-    to=''
-
-    if [[ $JARVIS_SH == *bash* ]];
-    then
-      name=$(echo ${parsed[0]})
-      to=$(echo ${parsed[1]})
-    fi
-
-    if [[ $JARVIS_SH == *zsh* ]];
-    then
-      name=$(echo ${parsed[1]})
-      to=$(echo ${parsed[2]})
-    fi
+    to=${line#*=}
+    name=${line%=*}
 
     if [[ "$name" == "$1" ]];
     then
@@ -56,6 +42,7 @@ function jarvis_jump {
     fi
   done < $JARVIS_HOME"/.jarvis"
 }
+
 
 function jarvis_all {
   #cat ~/.jarvis
@@ -68,7 +55,7 @@ function jarvis_all {
 
 function jarvis_add {
   touch $JARVIS_HOME"/.jarvis"
-  cur_wd=$(pwd)
+  cur_wd=$PWD
   echo "Type an alias for the current working directory, or ^C to quit:"
   read cur_alias
   echo $cur_alias"="$cur_wd >> $JARVIS_HOME"/.jarvis"
