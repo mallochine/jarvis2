@@ -1,16 +1,11 @@
 bash:
 	cp .jrc ~/.jrc;
-	echo . .jrc >> ~/.bashrc;
+	echo . ~/.jrc >> ~/.bashrc;
 	echo "Restart your shell"
 
 zsh:
 	cp .jrc ~/.jrc;
-	echo . .jrc >> ~/.zshrc;
-	echo "Restart your shell"
-
-csh:
-	cp .jrc ~/.jrc;
-	echo . .jrc >> ~/.cshrc;
+	echo . ~/.jrc >> ~/.zshrc;
 	echo "Restart your shell"
 
 update:
