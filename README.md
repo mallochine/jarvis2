@@ -37,7 +37,7 @@ Run the command that corresponds to your shell:
 - make bash 
 - make zsh 
 - make csh
-- 
+
 ```bash
 aguo@unix1:~/space$ git clone https://github.com/mallochine/jarvis2.git
 Initialized empty Git repository in /afs/andrew.cmu.edu/usr9/aguo/space/jarvis2/.git/
