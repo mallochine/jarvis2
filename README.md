@@ -52,7 +52,7 @@ aguo@unix1:~/space$
 aguo@unix1:~/space$ cd jarvis2
 aguo@unix1:~/space/jarvis2$ make bash
 cp .jrc ~/.jrc;
-echo . .jrc >> ~/.bashrc;
+echo . ~/.jrc >> ~/.bashrc;
 echo "Restart your shell"
 Restart your shell
 ```
