@@ -37,8 +37,8 @@ function jarvis_jump {
   while read line
   do
     # Kudos to @jsks for suggesting the following hack, which cleaned up the code quite a bit!
-    to=${line#*=}
-    name=${line%=*}
+    to=${line#*\=}
+    name=${line%\=*}
 
     if [[ "$name" == "$1" ]];
     then
