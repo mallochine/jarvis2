@@ -77,13 +77,28 @@ ml
 
 ### j \<bookmark\>
 
-Go to the directory corresponding to the bookmark. (Credits to jsks
-for significantly simplying the code here.).
+(Credits to jsks for significantly simplying the code here.).
+There are two cases:
+1. If the bookmark is for a directory, then cd there.
+2. If the bookmark is for a file, then open the file for edit.
 
 ```bash
 aguo@unix1:~$ j ml
 /afs/andrew.cmu.edu/usr9/aguo/Documents/10605
 aguo@unix1:~/Documents/10605$
+```
+
+```bash
+aguo@unix2:~$ j readme
+```
+
+```bash
+  1 Acknowledgements
+  2 ----------------
+  3 - @jsks for removing all subshells and simplifying code.
+  4 - Mr Green from ArchLinux for helping make the code more cross-shell.
+  5 
+  6 ...
 ```
 
 ### j del, j -, j del \<bookmark\>, j - \<bookmark\>
@@ -157,6 +172,7 @@ We would like help with...
 ---------------------------
 - Getting JARVIS2 into the packagement systems of various Linux distributions,
 such as apt-get (ubuntu), pacman (archlinux), and more!
+- Any suggestions to make jarvis2 even simpler.
 
 See Also
 ----------
