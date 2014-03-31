@@ -29,9 +29,11 @@ function jarvis_cd {
 }
 
 function jarvis_open {
-  echo ${1}
+  green='\e[0;32m'
+  endColor='\e[0m'
+
+  echo -e "${green}${1}${endColor}"
   ${EDITOR:-vim} ${1}
-  #vim /home/ec2-user/space/jarvis2/README.md
 }
 
 function jarvis_jump {
