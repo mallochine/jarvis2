@@ -78,15 +78,20 @@ ml
 ### j \<bookmark\>
 
 (Credits to jsks for significantly simplying the code here.).
-There are two cases:
-1. If the bookmark is for a directory, then cd there.
-2. If the bookmark is for a file, then open the file for edit.
 
+There are two cases:
+
+- If the bookmark is for a directory, then cd there.
+- If the bookmark is for a file, then open the file for edit.
+
+Case 1:
 ```bash
 aguo@unix1:~$ j ml
 /afs/andrew.cmu.edu/usr9/aguo/Documents/10605
 aguo@unix1:~/Documents/10605$
 ```
+
+Case 2:
 
 ```bash
 aguo@unix2:~$ j readme
