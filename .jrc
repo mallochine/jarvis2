@@ -26,6 +26,12 @@ function jarvis_cd {
   then
     cd $2
   fi
+
+  echo -e "${green}"$PWD"${endColor}"
+}
+
+function jarvis_open {
+  ${EDITOR:-vim} ${1}
 }
 
 function jarvis_jump {
@@ -42,13 +48,13 @@ function jarvis_jump {
 
     if [[ "$name" == "$1" ]];
     then
-      jarvis_cd $to $2
-      echo -e "${green}"$PWD"${endColor}"
+      # Credit to MrGreen for supplying the following file logic.
+      [[ -f "$to" ]] && jarvis_open $to
+      [[ -d "$to" ]] && jarvis_cd $to $2
       return
     fi
   done < $JARVIS_HOME"/.jarvis"
 }
-
 
 function jarvis_all {
   green='\e[0;32m'
@@ -88,12 +94,12 @@ function jarvis_update {
 }
 
 # allow $EDITOR if set
-# Credit to Mr Green from ArchLinux.
+# Credit to Mr Green and @jsks.
 function jarvis_edit {
   ${EDITOR:-vim} $JARVIS_HOME"/.jarvis"
 }
 
-# Kudos to Mr Green from ArchLinux for supplying the following code.
+# Kudos to Mr Green for the following code.
 function jarvis_delete {
   delete_alias=""
   if [[ -n "$2" ]]
