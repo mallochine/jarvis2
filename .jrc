@@ -103,7 +103,7 @@ function jarvis_edit {
   then
     echo "Type an alias you to add, or ^C to quit:"
     read file_alias
-    echo $cur_alias"="$PWD"/"$file >> $JARVIS_HOME"/.jarvis"
+    echo $file_alias"="$PWD"/"$file >> $JARVIS_HOME"/.jarvis"
     echo "\""$file_alias"\" added as a bookmark."
   else
     ${EDITOR:-vim} $JARVIS_HOME"/.jarvis"
