@@ -153,17 +153,6 @@ writing this!).
 
 ```
 
-### j edit \<file\>, j vim \<file\>
-
-Adds the file for edit.
-
-```bash
-aguo@unix2:~/space/jarvis2$ j edit README.md
-Type an alias you to add, or ^C to quit:
-readme
-"readme" added as a bookmark.
-```
-
 ### j all
 
 Lists all the bookmarks you have.
