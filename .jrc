@@ -18,6 +18,20 @@
 
 JARVIS_HOME=$PWD
 
+function jarvis_help {
+cat <<-EOF
+Usage: j [CMD] <file or dir> <bookmark>
+
+Commands
+  add | +   Add a bookmark
+  del | -   Delete a bookmark
+  all       List all bookmarks
+  help      Print this help message
+
+If no command is given, j jumps to the given bookmarks.
+EOF
+}
+
 function jarvis_cd {
   if [[ -n "$2" && -d "$1/$2" ]]
   then
@@ -145,6 +159,9 @@ function jarvis_main {
   ;;
   "del"|"-")
     jarvis_delete $@
+  ;;
+  "help")
+    jarvis_help
   ;;
   *)
     jarvis_jump $cmd $@
