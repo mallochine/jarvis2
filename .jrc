@@ -31,9 +31,6 @@ function jarvis_cd {
 
 function jarvis_jump {
   touch $JARVIS_HOME"/.jarvis"
-  green='\e[0;32m'
-  blue='\e[1;34m'
-  endColor='\e[0m'
 
   while read line
   do
@@ -79,7 +76,7 @@ function jarvis_add {
 
   if [[ -z "$cur_alias" ]]
   then
-    echo "Type an alias for ${target:-$PWD} or ^C to quit: "
+    echo -e "Type an alias for ${green}${target:-$PWD}${endColor}, or ^C to quit: "
     read cur_alias
   fi
 
@@ -122,6 +119,9 @@ function jarvis_delete {
 
 function jarvis_main {
   cmd=${1}
+  green='\e[0;32m'
+  blue='\e[1;34m'
+  endColor='\e[0m'
 
   # Shift parameters to filter out first $1.
   # Can't use subscripting since older zsh
@@ -129,12 +129,24 @@ function jarvis_main {
   shift
 
   case $cmd in
-  "add"|"+") jarvis_add $@;;
-  "all") jarvis_all;;
-  "update") jarvis_update;;
-  "edit"|"vim") jarvis_edit $@;;
-  "del"|"-") jarvis_delete $@;;
-  *) jarvis_jump $cmd $@;;
+  "add"|"+")
+    jarvis_add $@
+  ;;
+  "all")
+    jarvis_all
+  ;;
+  "update")
+    jarvis_update
+  ;;
+  "edit"|"vim")
+    jarvis_edit $@
+  ;;
+  "del"|"-")
+    jarvis_delete $@
+  ;;
+  *)
+    jarvis_jump $cmd $@
+  ;;
   esac
 
   # set -f and set +f are needed so that we can actually listen
