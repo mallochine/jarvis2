@@ -73,6 +73,14 @@ ml
 "bics" added as a bookmark.
 ```
 
+### \<file\>, j + \<file\>
+
+Adds the \<file\> as a bookmark.
+
+```bash
+TODO
+```
+
 ### j \<bookmark\>
 
 (Credits to jsks for significantly simplying the code here.).
