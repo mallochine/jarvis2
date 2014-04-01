@@ -57,7 +57,7 @@ Restart your shell
 
 Commands
 ----------
-### j add, j +, j add \<bookmark\>, j + \<bookmark\>
+### j add, j +
 
 Add the current directory as a bookmark.
 
@@ -73,7 +73,7 @@ ml
 "bics" added as a bookmark.
 ```
 
-### \<file\>, j + \<file\>
+### j add \<file\>, j + \<file\>
 
 Adds the \<file\> as a bookmark.
 
