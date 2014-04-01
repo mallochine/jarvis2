@@ -30,7 +30,7 @@ function jarvis_cd {
 }
 
 function jarvis_jump {
-  touch $JARVIS_HOME"/.jarvis"
+  local line name to
 
   while read line
   do
@@ -50,8 +50,7 @@ function jarvis_jump {
 }
 
 function jarvis_all {
-  green='\e[0;32m'
-  endColor='\e[0m'
+  local line
 
   # Credit to Mr Green from ArchLinux for suggesting the following code.
   echo -e "${green}\c"
@@ -63,8 +62,7 @@ function jarvis_all {
 }
 
 function jarvis_add {
-  touch "$JARVIS_HOME/.jarvis"
-  cur_alias=""
+  local target cur_alias
 
   if [[ -f "$1" || -d "$1" ]]
   then
@@ -88,8 +86,10 @@ function jarvis_add {
 }
 
 function jarvis_update {
-  SRC_URL='https://github.com/mallochine/jarvis2/raw/master'
-  wget -r -q "$SRC_URL/.jrc" -O "$JARVIS_HOME/.jrc"
+  local src_url
+
+  src_url='https://github.com/mallochine/jarvis2/raw/master'
+  wget -r -q "$src_url/.jrc" -O "$JARVIS_HOME/.jrc"
   . "$JARVIS_HOME/.jrc"
   echo "Updated."
 }
@@ -102,7 +102,7 @@ function jarvis_edit {
 
 # Kudos to Mr Green for the following code.
 function jarvis_delete {
-  delete_alias=""
+  local delete_alias
 
   if [[ -n "$1" ]]
   then
@@ -118,10 +118,12 @@ function jarvis_delete {
 }
 
 function jarvis_main {
-  cmd=${1}
-  green='\e[0;32m'
-  blue='\e[1;34m'
-  endColor='\e[0m'
+  local cmd=${1}
+  local green='\e[0;32m'
+  local blue='\e[1;34m'
+  local endColor='\e[0m'
+
+  [[ ! -f "$JARVIS_HOME/.jarvis" ]] && touch "$JARVIS_HOME/.jarvis"
 
   # Shift parameters to filter out first $1.
   # Can't use subscripting since older zsh
