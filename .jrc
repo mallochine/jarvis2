@@ -19,21 +19,14 @@
 JARVIS_HOME=$PWD
 
 function jarvis_cd {
-  cd $1;
-  if [[ -n "$2" ]]
+  if [[ -n "$2" && -d "$1/$2" ]]
   then
-    cd $2
+      cd "$1/$2"
+  else
+      cd "$1"
   fi
 
-  echo -e "${green}"$PWD"${endColor}"
-}
-
-function jarvis_open {
-  green='\e[0;32m'
-  endColor='\e[0m'
-
-  echo -e "${green}${1}${endColor}"
-  ${EDITOR:-vim} ${1}
+  echo -e "${green}$PWD${endColor}"
 }
 
 function jarvis_jump {
@@ -41,24 +34,22 @@ function jarvis_jump {
   green='\e[0;32m'
   blue='\e[1;34m'
   endColor='\e[0m'
-  declare toEdit
 
   while read line
   do
     # Kudos to @jsks for suggesting the following hack, which cleaned up the code quite a bit!
-    to=${line#*\=}
-    name=${line%\=*}
+    name="${line%\=*}"
 
-    if [[ "$name" == "$1" ]];
+    if [[ "$name" == "$1" ]]
     then
       # Credit to MrGreen for supplying the following file logic.
-      [[ -f "$to" ]] && break
-      [[ -d "$to" ]] && jarvis_cd $to $2
-      return
+      to="${line#*\=}"
+      break
     fi
-  done < $JARVIS_HOME"/.jarvis"
+  done < "$JARVIS_HOME/.jarvis"
 
-  [[ -f "$to" ]] && [[ "$name" == "$1" ]] && jarvis_open $to
+  [[ -f "$to" ]] && ${EDITOR:-vim} "$to"
+  [[ -d "$to" ]] && jarvis_cd "$to" "$2"
 }
 
 function jarvis_all {
@@ -70,66 +61,72 @@ function jarvis_all {
   while read line
   do
     echo ${line}
-  done < $JARVIS_HOME"/.jarvis"
+  done < "$JARVIS_HOME/.jarvis"
   echo -e "${endColor}\c"
 }
 
 function jarvis_add {
-  touch $JARVIS_HOME"/.jarvis"
+  touch "$JARVIS_HOME/.jarvis"
   cur_alias=""
 
-  if [[ -n "$2" ]]
+  if [[ -f "$1" || -d "$1" ]]
   then
-    cur_alias=$2
-  else
-    echo "Type an alias for the current working directory, or ^C to quit:"
+    # This currently only works on linux
+    target="$(readlink -f $1)"
+
+    [[ -n "$2" ]] && cur_alias="$2"
+  fi
+
+  if [[ -z "$cur_alias" ]]
+  then
+    echo "Type an alias for ${target:-$PWD} or ^C to quit: "
     read cur_alias
   fi
 
-  echo $cur_alias"="$PWD >> $JARVIS_HOME"/.jarvis"
-  echo "\""$cur_alias"\" added as a bookmark."
+  if [[ -n "$cur_alias" ]]
+  then
+    echo "$cur_alias=${target:-$PWD}" >> "$JARVIS_HOME/.jarvis"
+    echo "\"$cur_alias\" added as a bookmark"
+  fi
 }
 
 function jarvis_update {
   SRC_URL='https://github.com/mallochine/jarvis2/raw/master'
-  wget -r -q $SRC_URL"/.jrc" -O $JARVIS_HOME"/.jrc"
-  . $JARVIS_HOME"/.jrc"
+  wget -r -q "$SRC_URL/.jrc" -O "$JARVIS_HOME/.jrc"
+  . "$JARVIS_HOME/.jrc"
   echo "Updated."
 }
 
 # allow $EDITOR if set
 # Credit to Mr Green and @jsks.
 function jarvis_edit {
-  file=$2
-  if [[ -n "$file" ]]
-  then
-    echo "Type an alias you to add, or ^C to quit:"
-    read file_alias
-    echo $file_alias"="$PWD"/"$file >> $JARVIS_HOME"/.jarvis"
-    echo "\""$file_alias"\" added as a bookmark."
-  else
-    ${EDITOR:-vim} $JARVIS_HOME"/.jarvis"
-  fi
+  ${EDITOR:-vim} "$JARVIS_HOME/.jarvis"
 }
 
 # Kudos to Mr Green for the following code.
 function jarvis_delete {
   delete_alias=""
-  if [[ -n "$2" ]]
+
+  if [[ -n "$1" ]]
   then
-    delete_alias=$2
+    delete_alias=$1
   else
     echo "Type an alias you wish to delete, or ^C to quit:"
     read delete_alias
   fi
 
   # now find the alias you wish to delete
-  sed -i "/^${delete_alias}=/d" $JARVIS_HOME"/.jarvis"
+  sed -i "/^${delete_alias}=/d" "$JARVIS_HOME/.jarvis"
   echo "\"${delete_alias}\" deleted."
 }
 
 function jarvis_main {
   cmd=${1}
+
+  # Shift parameters to filter out first $1.
+  # Can't use subscripting since older zsh
+  # does not support ${@:2}
+  shift
 
   case $cmd in
   "add"|"+") jarvis_add $@;;
@@ -137,7 +134,7 @@ function jarvis_main {
   "update") jarvis_update;;
   "edit"|"vim") jarvis_edit $@;;
   "del"|"-") jarvis_delete $@;;
-  *) jarvis_jump $@;;
+  *) jarvis_jump $cmd $@;;
   esac
 
   # set -f and set +f are needed so that we can actually listen
