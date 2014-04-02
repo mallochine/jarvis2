@@ -179,8 +179,25 @@ debug=/var/bics-debug
 proxies=/home/ec2-user/space/fics-proxy
 ```
 
+### j help
+
+Displays help info.
+
+```bash
+Usage: j [CMD] <file or dir> <bookmark>
+
+Commands
+  add | +   Add a bookmark
+  del | -   Delete a bookmark
+  all       List all bookmarks
+  help      Print this help message
+
+If no command is given, j jumps to the given bookmarks.
+```
+
 We would like help with...
 ---------------------------
+- Updating our wiki: https://github.com/mallochine/jarvis2/wiki/jrc---Documentation
 - Getting JARVIS2 into the packagement systems of various Linux distributions,
 such as apt-get (ubuntu), pacman (archlinux), and more!
 - Any suggestions to make jarvis2 even simpler.
