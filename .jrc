@@ -16,8 +16,6 @@
 # Program: JARVIS.
 # Purpose: Significantly speed up CLI.
 
-JARVIS_HOME=$PWD
-
 function jarvis_help {
 cat <<-EOF
 Usage: j [CMD] <file or dir> <bookmark>
@@ -71,7 +69,7 @@ function jarvis_all {
   while read line
   do
     echo ${line}
-  done < "$JARVIS_HOME/.jarvis"
+  done < "${JARVIS_HOME}/.jarvis"
   echo -e "${endColor}\c"
 }
 
@@ -131,13 +129,14 @@ function jarvis_delete {
   echo "\"${delete_alias}\" deleted."
 }
 
-function jarvis_main {
+function j {
   local cmd=${1}
   local green='\e[0;32m'
   local blue='\e[1;34m'
   local endColor='\e[0m'
+  local JARVIS_HOME="~"
 
-  [[ ! -f "$JARVIS_HOME/.jarvis" ]] && touch "$JARVIS_HOME/.jarvis"
+  #[[ ! -f $JARVIS_HOME"/.jarvis" ]] && touch $JARVIS_HOME"/.jarvis"
 
   # Shift parameters to filter out first $1.
   # Can't use subscripting since older zsh
@@ -167,11 +166,4 @@ function jarvis_main {
     jarvis_jump $cmd $@
   ;;
   esac
-
-  # set -f and set +f are needed so that we can actually listen
-  # to what the user is trying to say, such as j rm *, instead
-  # of having bash automatically expand that for us.
-  set +f
 }
-
-alias j="set -f; jarvis_main"
