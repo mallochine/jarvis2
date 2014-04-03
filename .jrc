@@ -16,7 +16,7 @@
 # Program: JARVIS.
 # Purpose: Significantly speed up CLI.
 
-function jarvis_help {
+function _jarvis_help {
 cat <<-EOF
 Usage: j [CMD] <file or dir> <bookmark>
 
@@ -30,7 +30,7 @@ If no command is given, j jumps to the given bookmarks.
 EOF
 }
 
-function jarvis_cd {
+function _jarvis_cd {
   if [[ -n "$2" && -d "$1/$2" ]]
   then
       cd "$1/$2"
@@ -41,7 +41,7 @@ function jarvis_cd {
   echo -e "${green}$PWD${endColor}"
 }
 
-function jarvis_jump {
+function _jarvis_jump {
   local line name to
 
   while read line
@@ -55,13 +55,13 @@ function jarvis_jump {
       to="${line#*\=}"
       break
     fi
-  done < "$JARVIS_HOME/.jarvis"
+  done < "$jarvis_home/.jarvis"
 
   [[ -f "$to" ]] && ${EDITOR:-vim} "$to"
-  [[ -d "$to" ]] && jarvis_cd "$to" "$2"
+  [[ -d "$to" ]] && _jarvis_cd "$to" "$2"
 }
 
-function jarvis_all {
+function _jarvis_all {
   local line
 
   # Credit to Mr Green from ArchLinux for suggesting the following code.
@@ -69,11 +69,11 @@ function jarvis_all {
   while read line
   do
     echo ${line}
-  done < "${JARVIS_HOME}/.jarvis"
+  done < "${jarvis_home}/.jarvis"
   echo -e "${endColor}\c"
 }
 
-function jarvis_add {
+function _jarvis_add {
   local target cur_alias
 
   if [[ -f "$1" || -d "$1" ]]
@@ -92,28 +92,28 @@ function jarvis_add {
 
   if [[ -n "$cur_alias" ]]
   then
-    echo "$cur_alias=${target:-$PWD}" >> "$JARVIS_HOME/.jarvis"
+    echo "$cur_alias=${target:-$PWD}" >> "$jarvis_home/.jarvis"
     echo "\"$cur_alias\" added as a bookmark"
   fi
 }
 
-function jarvis_update {
+function _jarvis_update {
   local src_url
 
   src_url='https://github.com/mallochine/jarvis2/raw/master'
-  wget -r -q "$src_url/.jrc" -O "$JARVIS_HOME/.jrc"
-  . "$JARVIS_HOME/.jrc"
+  wget -r -q "$src_url/.jrc" -O "$jarvis_home/.jrc"
+  . "$jarvis_home/.jrc"
   echo "Updated."
 }
 
 # allow $EDITOR if set
 # Credit to Mr Green and @jsks.
-function jarvis_edit {
-  ${EDITOR:-vim} "$JARVIS_HOME/.jarvis"
+function _jarvis_edit {
+  ${EDITOR:-vim} "$jarvis_home/.jarvis"
 }
 
 # Kudos to Mr Green for the following code.
-function jarvis_delete {
+function _jarvis_delete {
   local delete_alias
 
   if [[ -n "$1" ]]
@@ -125,7 +125,7 @@ function jarvis_delete {
   fi
 
   # now find the alias you wish to delete
-  sed -i "/^${delete_alias}=/d" "$JARVIS_HOME/.jarvis"
+  sed -i "/^${delete_alias}=/d" "$jarvis_home/.jarvis"
   echo "\"${delete_alias}\" deleted."
 }
 
@@ -134,9 +134,9 @@ function j {
   local green='\e[0;32m'
   local blue='\e[1;34m'
   local endColor='\e[0m'
-  local JARVIS_HOME="~"
+  local jarvis_home="~/"
 
-  #[[ ! -f $JARVIS_HOME"/.jarvis" ]] && touch $JARVIS_HOME"/.jarvis"
+  [[ ! -f "$jarvis_home/.jarvis" ]] && touch "$jarvis_home/.jarvis"
 
   # Shift parameters to filter out first $1.
   # Can't use subscripting since older zsh
@@ -145,25 +145,25 @@ function j {
 
   case $cmd in
   "add"|"+")
-    jarvis_add $@
+    _jarvis_add $@
   ;;
   "all")
-    jarvis_all
+    _jarvis_all
   ;;
   "update")
-    jarvis_update
+    _jarvis_update
   ;;
   "edit"|"vim")
-    jarvis_edit $@
+    _jarvis_edit $@
   ;;
   "del"|"-")
-    jarvis_delete $@
+    _jarvis_delete $@
   ;;
   "help")
-    jarvis_help
+    _jarvis_help
   ;;
   *)
-    jarvis_jump $cmd $@
+    _jarvis_jump $cmd $@
   ;;
   esac
 }
