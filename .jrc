@@ -134,7 +134,7 @@ function j {
   local green='\e[0;32m'
   local blue='\e[1;34m'
   local endColor='\e[0m'
-  local jarvis_home="~"
+  local jarvis_home=$HOME
 
   [[ ! -f "$jarvis_home/.jarvis" ]] && touch "$jarvis_home/.jarvis"
 
