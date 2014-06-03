@@ -39,6 +39,7 @@ function _jarvis_cd {
   fi
 
   echo -e "${green}$PWD${endColor}"
+  ls
 }
 
 function _jarvis_jump {
