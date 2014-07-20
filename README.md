@@ -82,17 +82,6 @@ ml
 "bics" added as a bookmark.
 ```
 
-### j add \<file\>, j + \<file\>
-
-Adds the \<file\> as a bookmark.
-
-```bash
-[ec2-user@ip-10-232-62-140 jarvis2]$ j add
-Type an alias for /home/ec2-user/space/jarvis2, or ^C to quit:
-jrc
-"jrc" added as a bookmark
-```
-
 ### j \<bookmark\>
 
 (Credits to jsks for significantly simplying the code here.).
