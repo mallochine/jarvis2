@@ -87,7 +87,10 @@ ml
 Adds the \<file\> as a bookmark.
 
 ```bash
-TODO
+[ec2-user@ip-10-232-62-140 jarvis2]$ j add
+Type an alias for /home/ec2-user/space/jarvis2, or ^C to quit:
+jrc
+"jrc" added as a bookmark
 ```
 
 ### j \<bookmark\>
