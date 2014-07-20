@@ -60,9 +60,9 @@ Getting Started
 
 There are only a few commands you need to know in order to get started.
 
-Use the "j add <alias>" to create a bookmark for the directory you are currently in.
+Use the "j add \<alias\>" to create a bookmark for the directory you are currently in.
 
-Then use "j <alias>" to jump to that bookmark.
+Then use "j \<alias\>" to jump to that bookmark.
 
 Commands
 ----------
@@ -142,7 +142,7 @@ aguo@unix2:~$ j - hadoop
 ### j find
 
 Greps the bookmarks for a given query. If a query is given, then jarvis
-greps "<query>". Otherwise, jarvis will grep using $PWD.
+greps "\<query\>". Otherwise, jarvis will grep using $PWD.
 
 ```bash
 [ec2-user@ip-10-232-62-140 ~]$ j find jrc
