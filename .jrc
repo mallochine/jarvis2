@@ -42,6 +42,15 @@ function _jarvis_cd {
   ls
 }
 
+function _jarvis_find {
+  if [[ -n "$1" ]]
+  then
+    j all | grep "$1"
+  else
+    j all | grep $PWD
+  fi
+}
+
 function _jarvis_jump {
   local line name to
 
@@ -159,6 +168,9 @@ function j {
   ;;
   "del"|"-")
     _jarvis_delete $@
+  ;;
+  "find")
+    _jarvis_find $@
   ;;
   "help")
     _jarvis_help
