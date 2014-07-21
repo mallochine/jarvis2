@@ -45,9 +45,9 @@ function _jarvis_cd {
 function _jarvis_find {
   if [[ -n "$1" ]]
   then
-    j all | grep "$1"
+    _jarvis_all | grep "$1"
   else
-    j all | grep $PWD
+    _jarvis_all | grep $PWD
   fi
 }
 
