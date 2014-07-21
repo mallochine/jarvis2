@@ -55,6 +55,15 @@ echo "Restart your shell"
 Restart your shell
 ```
 
+Getting Started
+-----------------
+
+There are only a few commands you need to know in order to get started.
+
+Use the "j add \<alias\>" to create a bookmark for the directory you are currently in.
+
+Then use "j \<alias\>" to jump to that bookmark.
+
 Commands
 ----------
 ### j add, j +
@@ -71,14 +80,6 @@ ml
 ```bash
 [ec2-user@ip-10-252-62-49 bics]$ j + bics
 "bics" added as a bookmark.
-```
-
-### j add \<file\>, j + \<file\>
-
-Adds the \<file\> as a bookmark.
-
-```bash
-TODO
 ```
 
 ### j \<bookmark\>
@@ -128,6 +129,16 @@ hadoop
 ```bash
 aguo@unix2:~$ j - hadoop
 "hadoop" deleted.
+```
+
+### j find
+
+Greps the bookmarks for a given query. If a query is given, then jarvis
+greps "\<query\>". Otherwise, jarvis will grep using $PWD.
+
+```bash
+[ec2-user@ip-10-232-62-140 ~]$ j find jrc
+4:jrc=/home/ec2-user/space/jarvis2
 ```
 
 ### j edit, j vim
