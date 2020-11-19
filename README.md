@@ -6,8 +6,6 @@ Meta Information
 -------------------
 Author: Alex Guo.
 
-Contact: chessnut@outlook.com.
-
 Program: JARVIS.
 
 Backend code: https://github.com/mallochine/jarvis2-svr
